@@ -38,8 +38,8 @@ function test_all
 
 function extract_column
 {
-    #$x, where x is the column number
-    awk '{print $2}' FS="," test.csv > extract.txt
+    #$x, where x is the column number, and strip the first line
+    awk '{if(NR>1){print $2}}' FS="," test.csv > extract.txt
 }
 
 function curl_cmd ()
